@@ -5,6 +5,7 @@ Basic programming skills for Beit Dror students
 * Demo: local calculator (only add operation)
 * Task: expand the calculator to 4 operations; improve look-and-feel
 * Task: local BMI calculator
+* Demo: string manipulations
 * Task: gematria calculator
 * Demo: using Agify.io API
 * Task: Add "Clear" button to agify.html
