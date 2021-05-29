@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Agify</title>
+        <script>
+            function agify() {
+                name = document.getElementById("txtName").value;
+                var apiUrl = 'https://api.agify.io/?name=' + name;
+                fetch(apiUrl).then(response => {
+                    return response.json();
+                }).then(data => {
+                    // Work with JSON data here
+                    console.log(data);
+                    document.getElementById("txtAge").value = "" + data.age;
+                }).catch(err => {
+                    // Do something for an error here
+                    console.log(err);
+                });            
+            }
+        </script>
+        <style>
+            body {
+                background-color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Agify</h1>
+        <label for="">My name</label>
+        <input type="text" id="txtName"/>
+        <button onclick="agify()">Guess my age</button>
+        <input id="txtAge" type="number"/>
+    </body>
+</html>

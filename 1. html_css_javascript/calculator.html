@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <script>
+            function add() {
+                txtA = document.getElementById("txtA").value;
+                txtB = document.getElementById("txtB").value;
+                a = parseInt(txtA);
+                b = parseInt(txtB);
+                c = a + b;
+                document.getElementById("txtC").value = "" + c;
+            }
+        </script>
+        <style>
+            body {
+                background-color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Calculator</h1>
+        <input id="txtA" type="number"/>
+        +
+        <input id="txtB" type="number"/>
+        <button onclick="add()">=</button>
+        <input id="txtC" type="number"/>
+    </body>
+</html>
