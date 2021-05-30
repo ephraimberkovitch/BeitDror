@@ -12,7 +12,12 @@ Basic programming skills for Beit Dror students
 * Homework: predict nationality by first name - Nationalize.io API (https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/)
 2. Python
 * https://www.tutorialspoint.com/python/index.htm 
-* Demo: console tax calculator
+* Demo: console app: "Decide For Me!"
+* Task: console tax calculator
+* https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world 
+* Demo: API to compete with Agify.io
+* Task: Check ID number validity
+* Homework: API to compete with Nationalize.io
 3. PyQT
 * Demo: https://realpython.com/python-pyqt-gui-calculator/ 
 4. Databases
