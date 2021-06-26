@@ -11,7 +11,7 @@ Basic programming skills for Beit Dror students
 * Task: gematria calculator
 * Demo: using Agify.io API
 * Task: Add "Clear" button to agify.html
-* Language constructs: <table>, <ul>, <ol>, <option>
+* Language constructs: <table>, <a>, <ul>, <ol>, <option>
 * Homework: predict nationality by first name - Nationalize.io API (https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/)
 2. Python
 * https://www.tutorialspoint.com/python/index.htm 
