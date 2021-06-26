@@ -33,6 +33,7 @@
         }
         function guess(ch) {
             if (text.includes(ch)) {
+                hitSound.play();
                 for (let i=0;i<text.length;i++) {
                     if (ch == text[i]) {
                         playerGuess = playerGuess.replaceAt(i, ch);
@@ -48,6 +49,7 @@
             }
             else {
                 errors++;
+                missSound.play();
                 document.getElementById("spanErrors").innerText = "Current count of errors: "+errors;
                 if (errors>=MAX_ERRORS) {
                     document.getElementById("marLost").style.visibility = "visible";
@@ -122,16 +124,25 @@
             <td><button onclick="guess('Z')">Z</button></td>
         </tr>
     </table>
+    <!-- https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/snd_links.html -->
     <audio id="winSound">
       <source src="http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/music/win.ogg" type="audio/ogg">
     </audio>
     <audio id="lostSound">
       <source src="http://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg" type="audio/ogg">
     </audio>
+    <audio id="missSound">
+      <source src="http://codeskulptor-demos.commondatastorage.googleapis.com/pang/arrow.mp3" type="audio/mp3">
+    </audio>
+    <audio id="hitSound">
+      <source src="http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/music/start.ogg" type="audio/ogg">
+    </audio>
 
     <script>
         let winSound = document.getElementById("winSound");
         let lostSound = document.getElementById("lostSound");
+        let missSound = document.getElementById("missSound");
+        let hitSound = document.getElementById("hitSound");
     </script>
 </body>
 </html>
