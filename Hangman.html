@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman</title>
+    <script>
+        String.prototype.replaceAt=function(index, char) {
+            var a = this.split("");
+            a[index] = char;
+            return a.join("");
+        };
+
+        const text = "BEITDRORROCKS";
+        const prettyText = "Beit Dror Rocks!!!";
+
+        // let winSound = document.getElementById("winSound");
+        // let lostSound = document.getElementById("lostSound");
+
+        let playerGuess = "_____________";
+        let errors = 0;
+        const MAX_ERRORS = 5;
+        function start() {
+            errors = 0;
+            document.getElementById("spanErrors").innerText = "Current count of errors: "+errors;
+            document.getElementById("marLost").style.visibility = "hidden";
+            document.getElementById("marWin").style.visibility = "hidden";
+            playerGuess = "_____________";
+            document.getElementById("spanGuess").innerText = playerGuess;
+            // let winSound = document.getElementById("winSound");
+            winSound.pause();
+            // let lostSound = document.getElementById("lostSound");
+            lostSound.pause();
+        }
+        function guess(ch) {
+            if (text.includes(ch)) {
+                hitSound.play();
+                for (let i=0;i<text.length;i++) {
+                    if (ch == text[i]) {
+                        playerGuess = playerGuess.replaceAt(i, ch);
+                    }
+                }
+                document.getElementById("spanGuess").innerText = playerGuess;
+                if (playerGuess == text) {
+                    document.getElementById("spanGuess").innerText = prettyText;
+                    document.getElementById("marWin").style.visibility = "visible";
+                    // let winSound = document.getElementById("winSound");
+                    winSound.play();
+                }
+            }
+            else {
+                errors++;
+                missSound.play();
+                document.getElementById("spanErrors").innerText = "Current count of errors: "+errors;
+                if (errors>=MAX_ERRORS) {
+                    document.getElementById("marLost").style.visibility = "visible";
+                    // let lostSound = document.getElementById("lostSound");
+                    lostSound.play();
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: pink;
+            text-align: center;
+        }
+        #spanErrors {
+            color: red;
+            font-size: medium;
+        }
+        #spanGuess {
+            font-size: xx-large;
+            color: aquamarine;
+            font-weight: bolder;
+        }
+        .center {
+          margin-left: auto;
+          margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: blueviolet; font: xx-large">Hangman Game</h1>
+    <span id="spanGuess">_ _ _ _ , _ _ _ _ , _ _ _ _ _</span>
+    <br><br><br>
+    <br><br>
+    <marquee direction="left" width="50%" id="marWin" style="visibility: hidden">
+        <span style="font-size: xx-large;color:yellowgreen">YOU WON THE GAME!!!</span>
+    </marquee>
+    <marquee direction="right" width="50%" id="marLost" style="visibility: hidden">
+        <span style="font-size: x-large;color:red">YOU LOST THE GAME!!!</span>
+    </marquee>
+    <br>
+    <button onclick="start()"; style="background-color: rgb(165, 49, 126);">Start</button>
+    <br><br>
+    <table class="center">
+        <tr style="background-color: rgb(167, 104, 167);background-size: cover;">
+            <td><button onclick="guess('A')">A</button></td>
+            <td><button onclick="guess('B')">B</button></td>
+            <td><button onclick="guess('C')">C</button></td>
+            <td><button onclick="guess('D')">D</button></td>
+            <td><button onclick="guess('E')">E</button></td>
+            <td><button onclick="guess('F')">F</button></td>
+            <td><button onclick="guess('G')">G</button></td>
+            <td><button onclick="guess('H')">H</button></td>
+            <td><button onclick="guess('I')">I</button></td>
+            <td><button onclick="guess('J')">J</button></td>
+            <td><button onclick="guess('K')">K</button></td>
+            <td><button onclick="guess('L')">L</button></td>
+            <td><button onclick="guess('M')">M</button></td>
+            <td><button onclick="guess('N')">N</button></td>
+            <td><button onclick="guess('O')">O</button></td>
+            <td><button onclick="guess('P')">P</button></td>
+            <td><button onclick="guess('Q')">Q</button></td>
+            <td><button onclick="guess('R')">R</button></td>
+            <td><button onclick="guess('S')">S</button></td>
+            <td><button onclick="guess('T')">T</button></td>
+            <td><button onclick="guess('U')">U</button></td>
+            <td><button onclick="guess('V')">V</button></td>
+            <td><button onclick="guess('W')">W</button></td>
+            <td><button onclick="guess('X')">X</button></td>
+            <td><button onclick="guess('Y')">Y</button></td>
+            <td><button onclick="guess('Z')">Z</button></td>
+        </tr>
+    </table>
+    <br><br><br>
+
+    <button onclick="myFunction()"; style="background-color: chartreuse;">Hint</button>
+    <p id="demo"></p>
+    <script>
+      function myFunction() {
+        document.getElementById("demo").innerHTML = "Home Sweet Home";
+      }
+    </script>
+    <br>
+
+    <span id="spanErrors">Current count of errors: 0</span>
+
+    <!-- https://simpleguics2pygame.readthedocs.io/en/latest/_static/links/snd_links.html -->
+    <audio id="winSound">
+      <source src="http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/music/win.ogg" type="audio/ogg">
+    </audio>
+    <audio id="lostSound">
+      <source src="http://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg" type="audio/ogg">
+    </audio>
+    <audio id="missSound">
+      <source src="http://codeskulptor-demos.commondatastorage.googleapis.com/pang/arrow.mp3" type="audio/mp3">
+    </audio>
+    <audio id="hitSound">
+      <source src="http://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/music/start.ogg" type="audio/ogg">
+    </audio>
+
+    <script>
+        let winSound = document.getElementById("winSound");
+        let lostSound = document.getElementById("lostSound");
+        let missSound = document.getElementById("missSound");
+        let hitSound = document.getElementById("hitSound");
+    </script>
+</body>
+</html>
