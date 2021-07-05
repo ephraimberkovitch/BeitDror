@@ -7,18 +7,23 @@
 /* set the word for the hangman game*/
 const word = "computer";
 
+let firstTry = false;
+let secondTry = false;
+let ThirdTry = false;
+let fourthTry = false;
+let FifthTry = false;
 /* setting game list */
 const triesList = [firstTry, secondTry, ThirdTry, fourthTry, FifthTry];
 
 function algorithm(userVarForGame, tryNumber){
     for(let i in word){
         if(userVarForGame === i) {
-            return tryNumber = true
+            return tryNumber === true
         }
         else{
             continue
         }
-        return tryNumber = false
+        return tryNumber === false
     }
 }
 
